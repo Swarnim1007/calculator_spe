@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE_NAME = 'calculator'
-        GITHUB_REPO_URL = 'https://github.com/Vicky-Panchal/calculatorOps.git'
+        GITHUB_REPO_URL = 'https://github.com/Swarnim1007/calculator_spe.git'
         DOCKERHUB_CREDENTIALS = credentials('DockerHubCred')
     }
 
@@ -29,8 +29,8 @@ pipeline {
             steps {
                 script{
                     docker.withRegistry('', 'DockerHubCred') {
-                    sh 'docker tag calculator vickypanchal/calculator:latest'
-                    sh 'docker push vickypanchal/calculator'
+                    sh 'docker tag calculator swarnim1007/calculator:latest'
+                    sh 'docker push swarnim1007/calculator'
                     }
                  }
             }
