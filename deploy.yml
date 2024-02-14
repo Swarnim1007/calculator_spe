@@ -21,7 +21,7 @@
         name: docker
         state: started
 
-     name: Ensure calculator container is stopped and removed
+    - name: Ensure calculator container is stopped and removed
       docker_container:
         name: calculator
         state: absent
