@@ -21,10 +21,9 @@
         name: docker
         state: started
 
-    - name: Ensure calculator container is stopped and removed
-      docker_container:
-        name: calculator
-        state: absent
+    - name: Remove existing container if running
+      shell: docker rm -f calculator
+      ignore_errors: true
 
     - name: Running container
       shell: docker run -it -d --name calculator swarnim1007/calculator
