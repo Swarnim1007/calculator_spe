@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    tools {nodejs "nodejs"}
     environment {
         DOCKER_IMAGE_NAME = 'calculator'
         GITHUB_REPO_URL = 'https://github.com/Swarnim1007/calculator_spe.git'
@@ -21,6 +21,14 @@ pipeline {
             steps {
                 sh '''
                 docker build -t calculator .
+                '''
+            }
+        }
+
+	stage('Testing') {
+            steps {
+                sh '''
+                npm run test
                 '''
             }
         }
